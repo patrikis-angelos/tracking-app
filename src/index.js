@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './App';
+import rootReducer from './reducers/index';
+import './assets/reset.css';
 
-const state = {};
-const reducer = () => {};
+const state = {
+  user: {
+    username: '',
+    password: '',
+  },
+};
 
-const store = createStore(reducer, state);
+const store = createStore(rootReducer, state);
 
 ReactDOM.render(
   <React.StrictMode>
