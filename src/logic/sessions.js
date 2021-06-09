@@ -1,9 +1,11 @@
-const login = async (name, password) => {
+import base from './baseUrl';
+
+const login = async (name, password, endpoint) => {
   const credentials = {
     name,
     password,
   };
-  fetch('https://4ae399fe2aa7.ngrok.io/login', {
+  const response = fetch(`${base}/${endpoint}`, {
     mode: 'cors',
     method: 'post',
     headers: {
@@ -11,7 +13,13 @@ const login = async (name, password) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(credentials),
-  });
+  }).then((r) => r.json());
+  return response
 };
 
-export { login };
+const isLoggedIn = () => {
+  if (localStorage.token) return true;
+  return false;
+}
+
+export { login, isLoggedIn };

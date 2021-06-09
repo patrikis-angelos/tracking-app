@@ -1,7 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
+import { isLoggedIn } from './logic/sessions';
 
 const PrivateRoute = () => {
-  const authorized = false;
+  const authorized = isLoggedIn();
   let routes;
   if (authorized) {
     routes = (

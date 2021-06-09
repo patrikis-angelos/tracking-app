@@ -7,10 +7,6 @@ import rootReducer from './reducers/index';
 import './assets/reset.css';
 
 const state = {
-  user: {
-    username: '',
-    password: '',
-  },
 };
 
 const store = createStore(rootReducer, state);
