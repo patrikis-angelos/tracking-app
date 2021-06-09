@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import App from './App';
 
-const state = {}
-const reducer = () => {}
+const state = {};
+const reducer = () => {};
 
-const store = createStore(reducer, state)
+const store = createStore(reducer, state);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,5 +15,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
