@@ -22,4 +22,8 @@ const isLoggedIn = () => {
   return false;
 };
 
-export { login, isLoggedIn };
+const logout = () => {
+  localStorage.clear();
+};
+
+export { login, isLoggedIn, logout };

@@ -13,6 +13,7 @@ const Login = () => {
   const submitValue = signUp ? 'Sign Up' : 'Login';
   const endpoint = signUp ? 'users' : 'login';
   const validatePassword = signUp ? <input id="rPassword" type="password" placeholder="reapeat password" /> : <div />;
+  const link = signUp ? <a href="/users/login">Login</a> : <a href="/users/sign-up">Sign Up</a>;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +39,8 @@ const Login = () => {
         {validatePassword}
         <input type="submit" value={submitValue} onClick={(e) => handleSubmit(e)} />
       </form>
+      <p>or </p>
+      {link}
     </>
   );
 };
