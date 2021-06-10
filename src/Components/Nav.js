@@ -1,5 +1,5 @@
 const Nav = () => {
-  console.log('placeholder');
+  console.log('Nav');
   return (
     <div>Track.it</div>
   );

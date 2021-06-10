@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PrivateRoutes from './PrivateRoutes';
 import Login from './Login';
 import Nav from './Nav';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <PrivateRoutes />
         </Switch>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }
