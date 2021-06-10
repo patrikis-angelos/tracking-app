@@ -7,6 +7,7 @@ import rootReducer from './reducers/index';
 import './assets/reset.css';
 
 const state = {
+  units: [],
 };
 
 const store = createStore(rootReducer, state);

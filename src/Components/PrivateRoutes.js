@@ -1,5 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import { isLoggedIn } from '../logic/sessions';
+import Home from './Home';
 
 const PrivateRoutes = () => {
   const authorized = isLoggedIn();
@@ -7,7 +8,7 @@ const PrivateRoutes = () => {
   if (authorized) {
     routes = (
       <>
-        <Route exact path="/" />
+        <Route exact path="/" component={Home} />
       </>
     );
   } else {
