@@ -14,12 +14,12 @@ const login = async (name, password, endpoint) => {
     },
     body: JSON.stringify(credentials),
   }).then((r) => r.json());
-  return response
+  return response;
 };
 
 const isLoggedIn = () => {
   if (localStorage.token) return true;
   return false;
-}
+};
 
 export { login, isLoggedIn };

@@ -1,3 +1,3 @@
-const base = 'https://4ae399fe2aa7.ngrok.io'
+const base = 'https://d3391c324886.ngrok.io';
 
 export default base;
