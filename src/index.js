@@ -8,6 +8,8 @@ import './assets/reset.css';
 
 const state = {
   units: [],
+  values: {},
+  measurements: {},
 };
 
 const store = createStore(rootReducer, state);
