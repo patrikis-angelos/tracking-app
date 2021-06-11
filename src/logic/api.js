@@ -28,4 +28,15 @@ const saveMeasurement = async (id, value, token) => {
   });
 };
 
-export { fetchUnits, saveMeasurement };
+const fetchAllMeasurements = async (token) => {
+  const response = await fetch(`${base}/measurements`, {
+    mode: 'cors',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((r) => r.json());
+  return response.data;
+};
+
+export { fetchUnits, saveMeasurement, fetchAllMeasurements };

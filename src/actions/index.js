@@ -10,7 +10,7 @@ const getUnits = (units) => (
   }
 );
 
-const getMeasurements = (measurements) => (
+const getAllMeasurements = (measurements) => (
   {
     type: GET_MEASUREMENTS,
     measurements,
@@ -26,4 +26,4 @@ const addValue = (unit, value) => (
 );
 
 export default actions;
-export { getUnits, getMeasurements, addValue };
+export { getUnits, getAllMeasurements, addValue };

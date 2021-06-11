@@ -2,7 +2,7 @@ import actions from '../actions/index';
 
 const { GET_MEASUREMENTS } = actions;
 
-const measurementsReducer = (state = {}, action) => {
+const measurementsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_MEASUREMENTS:
       return action.measurements;
