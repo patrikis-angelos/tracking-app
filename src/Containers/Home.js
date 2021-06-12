@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchAllMeasurements } from '../logic/api';
 import { loadToken } from '../logic/storage';
 import MainInfo from '../Components/MainInfo';
+import Nutrient from '../Components/Nutrients';
 import newDate from '../logic/months';
 
 const Home = (props) => {
@@ -28,18 +29,63 @@ const Home = (props) => {
     changeDate({ day, month, year });
   };
 
+  const getMeasurementsByDate = (measurements) => {
+    const { day, month, year } = date;
+    const measurementsByDate = measurements.filter((m) => {
+      const mDate = new Date(m.created_at);
+      return (
+        mDate.getDate() === day
+        && mDate.getMonth() === month - 1
+        && mDate.getFullYear() === year);
+    });
+    return measurementsByDate;
+  };
+
+  const total = (measurements) => {
+    const total = measurements.reduce((value, m) => {
+      const newValue = m.value + value;
+      return newValue;
+    }, 0);
+    return total;
+  };
+
+  const last = (measurements) => {
+    const last = measurements.reduce((l, m) => {
+      if (m.created_at > l.created_at) return m;
+      return l;
+    }, { created_at: '' });
+    return last.value;
+  };
+
   const [mainInfo, list] = measurements.reduce(([m, l], measurement) => {
     const main = ['weight', 'energy', 'energy burned'].includes(measurement.unit.title);
     const result = main ? [[...m, measurement], l] : [m, [...l, measurement]];
     return result;
   }, [[], []]);
 
-  const main = mainInfo.map((elem) => (
-    <MainInfo key={elem.unit.id} unit={elem.unit} measurements={elem.measurements} />
-  ));
+  const main = mainInfo.map((elem) => {
+    const reduceMethod = elem.unit.title === 'weight' ? last : total;
+    return (
+      <MainInfo
+        key={elem.unit.id}
+        unit={elem.unit}
+        measurements={elem.measurements}
+        selectedDate={date}
+        getMeasurementsByDate={getMeasurementsByDate}
+        reduceMethod={reduceMethod}
+      />
+    );
+  });
 
   const nutrient = list.map((elem) => (
-    <div key={elem.unit.id}>{elem.unit.title}</div>
+    <Nutrient
+      key={elem.unit.id}
+      unit={elem.unit}
+      measurements={elem.measurements}
+      selectedDate={date}
+      getMeasurementsByDate={getMeasurementsByDate}
+      reduceMethod={total}
+    />
   ));
 
   return (
