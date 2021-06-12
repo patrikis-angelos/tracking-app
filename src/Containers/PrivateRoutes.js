@@ -6,11 +6,13 @@ import Home from './Home';
 import Add from './Add';
 import Progress from '../Components/Progress';
 import Unit from '../Components/Unit';
-import { getUnits, getAllMeasurements, addValue } from '../actions/index';
+import {
+  getUnits, getAllMeasurements, addValue, changeDate,
+} from '../actions/index';
 
 const PrivateRoutes = (props) => {
   const {
-    units, getUnits, values, addValue, measurements, getAllMeasurements,
+    units, getUnits, values, addValue, measurements, getAllMeasurements, date, changeDate,
   } = props;
   const authorized = isLoggedIn();
   let routes;
@@ -24,6 +26,8 @@ const PrivateRoutes = (props) => {
             <Home
               measurements={measurements}
               getAllMeasurements={getAllMeasurements}
+              date={date}
+              changeDate={changeDate}
             />
           )}
         />
@@ -56,6 +60,7 @@ PrivateRoutes.propTypes = {
   units: PropTypes.arrayOf(PropTypes.object).isRequired,
   values: PropTypes.shape({}).isRequired,
   measurements: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  date: PropTypes.shape({}).isRequired,
   getUnits: PropTypes.func.isRequired,
   getAllMeasurements: PropTypes.func.isRequired,
   addValue: PropTypes.func.isRequired,
@@ -65,12 +70,14 @@ const mapStateToProps = (state) => ({
   units: state.units,
   measurements: state.measurements,
   values: state.values,
+  date: state.date,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getUnits: (units) => dispatch(getUnits(units)),
   getAllMeasurements: (measurements) => dispatch(getAllMeasurements(measurements)),
   addValue: (unit, value) => dispatch(addValue(unit, value)),
+  changeDate: (date) => dispatch(changeDate(date)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoutes);

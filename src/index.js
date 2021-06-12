@@ -10,6 +10,11 @@ const state = {
   units: [],
   values: {},
   measurements: [],
+  date: {
+    day: 1,
+    month: 1,
+    year: 2021,
+  },
 };
 
 const store = createStore(rootReducer, state);
