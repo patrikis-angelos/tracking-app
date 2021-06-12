@@ -59,7 +59,7 @@ const PrivateRoutes = (props) => {
 PrivateRoutes.propTypes = {
   units: PropTypes.arrayOf(PropTypes.object).isRequired,
   values: PropTypes.shape({}).isRequired,
-  measurements: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  measurements: PropTypes.shape({}).isRequired,
   date: PropTypes.shape({}).isRequired,
   getUnits: PropTypes.func.isRequired,
   getAllMeasurements: PropTypes.func.isRequired,

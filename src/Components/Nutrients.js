@@ -8,12 +8,12 @@ const Nutrient = (props) => {
   const displayedValue = reduceMethod(measurementsByDate);
 
   return (
-    <div>{`${unit.title}: ${displayedValue}`}</div>
+    <div>{`${unit}: ${displayedValue}`}</div>
   );
 };
 
 Nutrient.propTypes = {
-  unit: PropTypes.shape({ title: PropTypes.string.isRequired }).isRequired,
+  unit: PropTypes.string.isRequired,
   measurements: PropTypes.arrayOf(PropTypes.object).isRequired,
   getMeasurementsByDate: PropTypes.func.isRequired,
   reduceMethod: PropTypes.func.isRequired,

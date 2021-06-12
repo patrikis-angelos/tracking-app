@@ -29,9 +29,10 @@ const Home = (props) => {
     changeDate({ day, month, year });
   };
 
+  // Remove the below from here
   const getMeasurementsByDate = (measurements) => {
     const { day, month, year } = date;
-    const measurementsByDate = measurements.filter((m) => {
+    const measurementsByDate = measurements.filter((m) => { //eslint-disable-line
       const mDate = new Date(m.created_at);
       return (
         mDate.getDate() === day
@@ -42,7 +43,7 @@ const Home = (props) => {
   };
 
   const total = (measurements) => {
-    const total = measurements.reduce((value, m) => {
+    const total = measurements.reduce((value, m) => { //eslint-disable-line
       const newValue = m.value + value;
       return newValue;
     }, 0);
@@ -50,25 +51,28 @@ const Home = (props) => {
   };
 
   const last = (measurements) => {
-    const last = measurements.reduce((l, m) => {
+    const last = measurements.reduce((l, m) => { //eslint-disable-line
       if (m.created_at > l.created_at) return m;
       return l;
     }, { created_at: '' });
     return last.value;
   };
+  // Remove the above from here
 
-  const [mainInfo, list] = measurements.reduce(([m, l], measurement) => {
-    const main = ['weight', 'energy', 'energy burned'].includes(measurement.unit.title);
-    const result = main ? [[...m, measurement], l] : [m, [...l, measurement]];
+  const [mainInfo, list] = Object.keys(measurements).reduce(([m, l], key) => {
+    const main = ['weight', 'energy', 'energy burned'].includes(key);
+    const result = main
+      ? [[...m, { title: key, measurements: measurements[key] }], l]
+      : [m, [...l, { title: key, measurements: measurements[key] }]];
     return result;
   }, [[], []]);
 
   const main = mainInfo.map((elem) => {
-    const reduceMethod = elem.unit.title === 'weight' ? last : total;
+    const reduceMethod = elem.title === 'weight' ? last : total;
     return (
       <MainInfo
-        key={elem.unit.id}
-        unit={elem.unit}
+        key={elem.title}
+        unit={elem.title}
         measurements={elem.measurements}
         selectedDate={date}
         getMeasurementsByDate={getMeasurementsByDate}
@@ -79,8 +83,8 @@ const Home = (props) => {
 
   const nutrient = list.map((elem) => (
     <Nutrient
-      key={elem.unit.id}
-      unit={elem.unit}
+      key={elem.title}
+      unit={elem.title}
       measurements={elem.measurements}
       selectedDate={date}
       getMeasurementsByDate={getMeasurementsByDate}
@@ -100,7 +104,7 @@ const Home = (props) => {
 };
 
 Home.propTypes = {
-  measurements: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  measurements: PropTypes.shape({}).isRequired,
   getAllMeasurements: PropTypes.func.isRequired,
   date: PropTypes.shape({
     day: PropTypes.number.isRequired,
