@@ -57,6 +57,14 @@ body {
   font-weight: bold;
 }
 
+.big {
+  font-size: 30px;
+}
+
+.small {
+  font-size: small;
+}
+
 .flex {
   display: flex;
 }
@@ -83,6 +91,12 @@ body {
   display: block;
   height: 80px;
   width: 25%;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.m-top-10 {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
