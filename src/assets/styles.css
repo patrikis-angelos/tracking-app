@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+.nav {
+  height: 80px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 25px;
+}
+
+.color-blue {
+  color: #62B5E5;
+}
+
+.background-blue {
+  background-color: #62B5E5;
+}
+
+.color-gray {
+  color: #67899c;
+}
+
+.background-gray {
+  background-color: #67899c;
+}
+
+.color-green {
+  color: #ADDC91;
+}
+
+.background-green {
+  background-color: #ADDC91;
+}
+
+.color-white {
+  color: white;
+}
+
+.background-white {
+  background-color: white;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=styles.css.map */

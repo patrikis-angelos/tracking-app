@@ -14,7 +14,6 @@ const Add = (props) => {
       getUnits(units);
     });
   }, []);
-  console.log(values);
 
   const handleSubmit = (unit, id) => {
     const value = values[unit];

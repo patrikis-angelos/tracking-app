@@ -13,7 +13,7 @@ const Progress = (props) => {
   }, []);
 
   const list = measurements[filter].map((m) => (
-    <div key={`p${m.id}`}>{m.value}</div>
+    <div key={`pclear${m.id}`}>{m.value}</div>
   ));
 
   return (

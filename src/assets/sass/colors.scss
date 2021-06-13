@@ -1,0 +1,20 @@
+$blue: #62B5E5;
+$gray: #67899c;
+$green: #ADDC91;
+
+$colors: (
+  blue: $blue,
+  gray: $gray,
+  green: $green,
+  white: white,
+);
+
+@each $key, $value in $colors {
+  .color-#{"" + $key} {
+    color: $value;
+  }
+
+  .background-#{"" + $key} {
+    background-color: $value;
+  }
+}
