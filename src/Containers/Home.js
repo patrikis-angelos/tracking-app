@@ -55,6 +55,7 @@ const Home = (props) => {
       if (m.created_at > l.created_at) return m;
       return l;
     }, { created_at: '' });
+    if (!last.value) return 0;
     return last.value;
   };
   // Remove the above from here

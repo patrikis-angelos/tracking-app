@@ -25,6 +25,7 @@ const state = {
     month: 1,
     year: 2021,
   },
+  filter: 'weight',
 };
 
 const store = createStore(rootReducer, state);

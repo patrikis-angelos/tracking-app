@@ -4,15 +4,14 @@ import PropTypes from 'prop-types';
 import { isLoggedIn } from '../logic/sessions';
 import Home from './Home';
 import Add from './Add';
-import Progress from '../Components/Progress';
-import Unit from '../Components/Unit';
+import Progress from './Progress';
 import {
   getUnits, getAllMeasurements, addValue, changeDate,
 } from '../actions/index';
 
 const PrivateRoutes = (props) => {
   const {
-    units, getUnits, values, addValue, measurements, getAllMeasurements, date, changeDate,
+    units, getUnits, values, addValue, measurements, getAllMeasurements, date, changeDate, filter,
   } = props;
   const authorized = isLoggedIn();
   let routes;
@@ -43,8 +42,17 @@ const PrivateRoutes = (props) => {
             />
           )}
         />
-        <Route exact path="/progress" component={Progress} />
-        <Route path="/unit" component={Unit} />
+        <Route
+          exact
+          path="/progress"
+          render={() => (
+            <Progress
+              measurements={measurements}
+              getAllMeasurements={getAllMeasurements}
+              filter={filter}
+            />
+          )}
+        />
       </>
     );
   } else {
@@ -71,6 +79,7 @@ const mapStateToProps = (state) => ({
   measurements: state.measurements,
   values: state.values,
   date: state.date,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
