@@ -95,9 +95,11 @@ const Home = (props) => {
 
   return (
     <div>
-      <button type="button" onClick={() => handleDateChange(-1)}>&lt;</button>
-      <button type="button" onClick={() => handleDateChange(1)}>&gt;</button>
-      <p>{`${date.day}-${date.month}-${date.year}`}</p>
+      <div className="flex space-between date">
+        <button type="button" onClick={() => handleDateChange(-1)}>&lt;</button>
+        <p>{`${date.day}-${date.month}-${date.year}`}</p>
+        <button type="button" onClick={() => handleDateChange(1)}>&gt;</button>
+      </div>
       {main}
       {nutrient}
     </div>

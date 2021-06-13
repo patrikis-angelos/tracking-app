@@ -8,14 +8,14 @@ import Footer from './Footer';
 function App() {
   return (
     <>
-      <Nav />
       <BrowserRouter>
+        <Nav />
         <Switch>
           <Route exact path={['/users/login', '/users/sign-up']} component={Login} />
           <PrivateRoutes />
         </Switch>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   );
 }

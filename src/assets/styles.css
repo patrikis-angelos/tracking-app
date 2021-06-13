@@ -25,6 +25,14 @@
   background-color: #67899c;
 }
 
+.color-dark-gray {
+  color: #374750;
+}
+
+.background-dark-gray {
+  background-color: #374750;
+}
+
 .color-green {
   color: #ADDC91;
 }
@@ -47,6 +55,34 @@ body {
 
 .bold {
   font-weight: bold;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.date {
+  margin-top: 15px;
+}
+
+.footer {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.icon {
+  display: block;
+  height: 80px;
+  width: 25%;
 }
 
 /*# sourceMappingURL=styles.css.map */
