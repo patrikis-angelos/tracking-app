@@ -4,12 +4,13 @@ import { fetchAllMeasurements } from '../logic/api';
 import { loadToken } from '../logic/storage';
 import MainInfo from '../Components/MainInfo';
 import Nutrient from '../Components/Nutrients';
-import newDate from '../logic/months';
+import newDate, { getMonths } from '../logic/months';
 
 const Home = (props) => {
   const {
     measurements, getAllMeasurements, date, changeDate, //eslint-disable-line
   } = props;
+  const months = getMonths(0);
 
   useEffect(() => {
     const token = loadToken();
@@ -21,7 +22,7 @@ const Home = (props) => {
     const day = today.getDate();
     const month = today.getMonth();
     const year = today.getFullYear();
-    changeDate({ day, month: month + 1, year });
+    changeDate({ day, month, year });
   }, []);
 
   const handleDateChange = (dir) => {
@@ -36,7 +37,7 @@ const Home = (props) => {
       const mDate = new Date(m.created_at);
       return (
         mDate.getDate() === day
-        && mDate.getMonth() === month - 1
+        && mDate.getMonth() === month
         && mDate.getFullYear() === year);
     });
     return measurementsByDate;
@@ -61,7 +62,7 @@ const Home = (props) => {
   // Remove the above from here
 
   const [mainInfo, list] = Object.keys(measurements).reduce(([m, l], key) => {
-    const main = ['weight', 'energy', 'energy burned'].includes(key);
+    const main = ['Weight', 'Energy', 'Energy burned'].includes(key);
     const result = main
       ? [[...m, { title: key, measurements: measurements[key] }], l]
       : [m, [...l, { title: key, measurements: measurements[key] }]];
@@ -69,7 +70,7 @@ const Home = (props) => {
   }, [[], []]);
 
   const main = mainInfo.map((elem) => {
-    const reduceMethod = elem.title === 'weight' ? last : total;
+    const reduceMethod = elem.title === 'Weight' ? last : total;
     return (
       <MainInfo
         key={elem.title}
@@ -96,12 +97,18 @@ const Home = (props) => {
   return (
     <div>
       <div className="flex space-between date">
-        <button type="button" onClick={() => handleDateChange(-1)}>&lt;</button>
-        <p>{`${date.day}-${date.month}-${date.year}`}</p>
-        <button type="button" onClick={() => handleDateChange(1)}>&gt;</button>
+        <button className="color-gray" type="button" onClick={() => handleDateChange(-1)}>&lt;</button>
+        <p className="color-gray">{`${date.day}-${months[date.month].full}-${date.year}`}</p>
+        <button className="color-gray" type="button" onClick={() => handleDateChange(1)}>&gt;</button>
       </div>
-      {main}
-      {nutrient}
+      <div className="p-l-20 p-r-20">
+        <div className="info-wrapper m-t-30 flex">
+          {main}
+        </div>
+        <div className="nutrient-wrapper m-t-30 flex wrap center">
+          {nutrient}
+        </div>
+      </div>
     </div>
   );
 };

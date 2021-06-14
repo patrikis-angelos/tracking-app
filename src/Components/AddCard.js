@@ -14,10 +14,10 @@ const AddCard = (props) => {
   };
 
   return (
-    <div>
-      <div>{title}</div>
-      <input id={title} type="number" placeholder="0" value={value} onChange={(e) => handleChange(e)} />
-      <button type="submit" onClick={(e) => handleSubmit(e, id)}>+</button>
+    <div className="add-card flex space-between align-center m-b-20 p-l-10 p-r-10">
+      <div className="color-gray medium input-title flex">{title}</div>
+      <input className="input" id={title} type="number" placeholder="0" value={value} onChange={(e) => handleChange(e)} />
+      <button className="submit-button color-dark-gray medium" type="submit" onClick={(e) => handleSubmit(e, id)}>+</button>
     </div>
   );
 };

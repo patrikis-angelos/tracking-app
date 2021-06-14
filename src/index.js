@@ -11,22 +11,22 @@ const state = {
   units: [],
   values: {},
   measurements: {
-    weight: [{ value: 0 }],
-    energy: [{ value: 0 }],
-    'energy burned': [{ value: 0 }],
-    sugar: [{ value: 0 }],
-    fat: [{ value: 0 }],
-    water: [{ value: 0 }],
-    protein: [{ value: 0 }],
-    carbonhydrates: [{ value: 0 }],
-    saturated: [{ value: 0 }],
+    Weight: [{ value: 0 }],
+    Energy: [{ value: 0 }],
+    'Energy burned': [{ value: 0 }],
+    Sugar: [{ value: 0 }],
+    Fats: [{ value: 0 }],
+    Water: [{ value: 0 }],
+    Protein: [{ value: 0 }],
+    Carbonhydrates: [{ value: 0 }],
+    'Saturated fats': [{ value: 0 }],
   },
   date: {
     day: 1,
     month: 1,
     year: 2021,
   },
-  filter: 'weight',
+  filter: 'Weight',
 };
 
 const store = createStore(rootReducer, state);

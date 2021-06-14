@@ -38,7 +38,7 @@ const Add = (props) => {
   ));
 
   return (
-    <div>{unitList}</div>
+    <div className="add-wrapper p-l-20 p-r-20">{unitList}</div>
   );
 };
 

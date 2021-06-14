@@ -74,9 +74,9 @@ const newDate = (dir, day, month, year) => {
   if (newDay <= 0) {
     newMonth -= 1;
     if (newMonth <= 0) { newMonth = 12; newYear -= 1; }
-    newDay = months[newMonth - 1].days;
+    newDay = months[newMonth].days;
   }
-  if (newDay > months[newMonth - 1].days) {
+  if (newDay > months[newMonth].days) {
     newDay = 1;
     newMonth += 1;
     if (newMonth > 12) { newMonth = 1; newYear += 1; }
@@ -84,4 +84,5 @@ const newDate = (dir, day, month, year) => {
   return [newDay, newMonth, newYear];
 };
 
+export { getMonths };
 export default newDate;

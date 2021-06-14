@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login">
       {redirect}
       <form>
         <input id="name" type="text" placeholder="username" />
@@ -41,7 +41,7 @@ const Login = () => {
       </form>
       <p>or </p>
       {link}
-    </>
+    </div>
   );
 };
 
