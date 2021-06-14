@@ -1,3 +1,3 @@
-const base = 'https://5664e980a1a4.ngrok.io';
+const base = 'https://salty-chamber-88636.herokuapp.com';
 
 export default base;
