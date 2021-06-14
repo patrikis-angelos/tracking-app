@@ -12,7 +12,7 @@ const Login = () => {
   const signUp = path !== 'login';
   const submitValue = signUp ? 'Sign Up' : 'Login';
   const endpoint = signUp ? 'users' : 'login';
-  const validatePassword = signUp ? <input id="rPassword" type="password" placeholder="reapeat password" /> : <div />;
+  const validatePassword = signUp ? <input className="field m-b-20 background-blue color-white" id="rPassword" type="password" placeholder="reapeat password" /> : <div />;
   const link = signUp ? <a href="/users/login">Login</a> : <a href="/users/sign-up">Sign Up</a>;
 
   const handleSubmit = async (e) => {
@@ -31,13 +31,13 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login text-center">
       {redirect}
       <form>
-        <input id="name" type="text" placeholder="username" />
-        <input id="password" type="password" placeholder="password" />
+        <input className="field m-b-20 background-blue color-white" id="name" type="text" placeholder="username" />
+        <input className="field m-b-20 background-blue color-white" id="password" type="password" placeholder="password" />
         {validatePassword}
-        <input type="submit" value={submitValue} onClick={(e) => handleSubmit(e)} />
+        <input className="login-btn background-gray m-b-30" type="submit" value={submitValue} onClick={(e) => handleSubmit(e)} />
       </form>
       <p>or </p>
       {link}
