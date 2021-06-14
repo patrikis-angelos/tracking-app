@@ -22,4 +22,16 @@ const measurementUnits = {
   Protein: 'g',
 };
 
-export { icons, measurementUnits };
+const options = [
+  'Weight',
+  'Energy',
+  'Energy burned',
+  'Fats',
+  'Saturated fats',
+  'Water',
+  'Sugar',
+  'Carbonhydrates',
+  'Protein',
+];
+
+export { icons, measurementUnits, options };

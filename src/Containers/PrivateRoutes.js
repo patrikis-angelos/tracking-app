@@ -6,12 +6,13 @@ import Home from './Home';
 import Add from './Add';
 import Progress from './Progress';
 import {
-  getUnits, getAllMeasurements, addValue, changeDate,
+  getUnits, getAllMeasurements, addValue, changeDate, changeFilter,
 } from '../actions/index';
 
 const PrivateRoutes = (props) => {
   const {
-    units, getUnits, values, addValue, measurements, getAllMeasurements, date, changeDate, filter,
+    units, getUnits, values, addValue, measurements,
+    getAllMeasurements, date, changeDate, filter, changeFilter,
   } = props;
   const authorized = isLoggedIn();
   let routes;
@@ -50,6 +51,7 @@ const PrivateRoutes = (props) => {
               measurements={measurements}
               getAllMeasurements={getAllMeasurements}
               filter={filter}
+              changeFilter={changeFilter}
             />
           )}
         />
@@ -87,6 +89,7 @@ const mapDispatchToProps = (dispatch) => ({
   getAllMeasurements: (measurements) => dispatch(getAllMeasurements(measurements)),
   addValue: (unit, value) => dispatch(addValue(unit, value)),
   changeDate: (date) => dispatch(changeDate(date)),
+  changeFilter: (filter) => dispatch(changeFilter(filter)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoutes);

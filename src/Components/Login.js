@@ -5,6 +5,7 @@ import { saveToken } from '../logic/storage';
 
 const Login = () => {
   const [redirect, setRedirect] = useState();
+  const [error, setError] = useState();
 
   const location = useLocation();
   const path = location.pathname.split('/')[2];
@@ -26,13 +27,14 @@ const Login = () => {
       saveToken(response.token);
       setRedirect(<Redirect to={{ pathname: '/' }} />);
     } else {
-      // display error message
+      setError(<div className="m-b-20">{response.error}</div>);
     }
   };
 
   return (
     <div className="login text-center">
       {redirect}
+      {error}
       <form>
         <input className="field m-b-20 background-blue color-white" id="name" type="text" placeholder="username" />
         <input className="field m-b-20 background-blue color-white" id="password" type="password" placeholder="password" />
