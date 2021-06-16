@@ -3,9 +3,9 @@ import { icons, measurementUnits } from '../logic/info';
 
 const MainInfo = (props) => {
   const {
-    unit, measurements, getMeasurementsByDate, reduceMethod,
+    unit, measurements, getMeasurementsByDate, reduceMethod, selectedDate,
   } = props;
-  const measurementsByDate = getMeasurementsByDate(measurements);
+  const measurementsByDate = getMeasurementsByDate(measurements, selectedDate);
   const displayedValue = reduceMethod(measurementsByDate);
 
   return (
@@ -23,6 +23,7 @@ MainInfo.propTypes = {
   measurements: PropTypes.arrayOf(PropTypes.object).isRequired,
   getMeasurementsByDate: PropTypes.func.isRequired,
   reduceMethod: PropTypes.func.isRequired,
+  selectedDate: PropTypes.shape({}).isRequired,
 };
 
 export default MainInfo;

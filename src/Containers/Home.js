@@ -5,6 +5,7 @@ import { loadToken } from '../logic/storage';
 import MainInfo from '../Components/MainInfo';
 import Nutrient from '../Components/Nutrients';
 import newDate, { getMonths } from '../logic/months';
+import { getMeasurementsByDate, total, last } from '../logic/measurements';
 
 const Home = (props) => {
   const {
@@ -29,37 +30,6 @@ const Home = (props) => {
     const [day, month, year] = newDate(dir, date.day, date.month, date.year);
     changeDate({ day, month, year });
   };
-
-  // Remove the below from here
-  const getMeasurementsByDate = (measurements) => {
-    const { day, month, year } = date;
-    const measurementsByDate = measurements.filter((m) => { //eslint-disable-line
-      const mDate = new Date(m.created_at);
-      return (
-        mDate.getDate() === day
-        && mDate.getMonth() === month
-        && mDate.getFullYear() === year);
-    });
-    return measurementsByDate;
-  };
-
-  const total = (measurements) => {
-    const total = measurements.reduce((value, m) => { //eslint-disable-line
-      const newValue = m.value + value;
-      return newValue;
-    }, 0);
-    return total;
-  };
-
-  const last = (measurements) => {
-    const last = measurements.reduce((l, m) => { //eslint-disable-line
-      if (m.created_at > l.created_at) return m;
-      return l;
-    }, { created_at: '' });
-    if (!last.value) return 0;
-    return last.value;
-  };
-  // Remove the above from here
 
   const [mainInfo, list] = Object.keys(measurements).reduce(([m, l], key) => {
     const main = ['Weight', 'Energy', 'Energy burned'].includes(key);

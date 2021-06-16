@@ -8,6 +8,7 @@ describe('MainInfo', () => {
       measurements={[{}]}
       getMeasurementsByDate={() => {}}
       reduceMethod={() => {}}
+      selectedDate={{}}
     />)
       .toJSON();
     expect(tree).toMatchSnapshot();
