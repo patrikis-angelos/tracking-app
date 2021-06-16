@@ -2,7 +2,7 @@
 
 # Healthify
 
-Healthify is a mobile tracking app for measuring weight and the nutrinional intakes per day. The user can create an account and when he is logged in he can add his measuremnets and preview the total amount of the basic nutrients as well as the total amount of energy consumed and burned.
+Healthify is a mobile tracking app for measuring weight and the nutritional intakes per day. The user can create an account and when he is logged in he can add his measurements and preview the total amount of the basic nutrients as well as the total amount of energy consumed and burned.
 The app is connected to a REST API build in Ruby on Rails. The design of the project is inspired by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) and can be found [here](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI).
 
 ![screenshot](./docs/healthify.png)
