@@ -15,10 +15,13 @@ The app is connected to a REST API build in Ruby on Rails. The design of the pro
 
 ## Getting Started
 
-`git clone git@github.com:patrick-angelos/tracking-app.git`
-`cd tracking-app`
-`npm install`
-`npm run start`
+- `git clone git@github.com:patrick-angelos/tracking-app.git`
+- `cd tracking-app`
+- `npm install`
+- `npm run start`
+
+To run the tests: 
+- `npm test`
 
 ## [LiveVersion](https://healthify-patrick.herokuapp.com/)
 

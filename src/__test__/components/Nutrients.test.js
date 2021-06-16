@@ -9,7 +9,7 @@ describe('Nutrients', () => {
       getMeasurementsByDate={() => {}}
       reduceMethod={() => {}}
     />)
-    .toJSON();
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

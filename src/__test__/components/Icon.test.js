@@ -16,7 +16,7 @@ describe('Icon', () => {
       clickHandler={() => {}}
       icon=""
     />)
-    .toJSON();
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

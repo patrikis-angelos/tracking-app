@@ -3,7 +3,7 @@ import Nav from '../../Components/Nav';
 
 describe('Nav', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Nav/>).toJSON();
+    const tree = renderer.create(<Nav />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

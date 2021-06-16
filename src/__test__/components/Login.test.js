@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('Login', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Login/>).toJSON();
+    const tree = renderer.create(<Login />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -9,7 +9,7 @@ describe('MainInfo', () => {
       getMeasurementsByDate={() => {}}
       reduceMethod={() => {}}
     />)
-    .toJSON();
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

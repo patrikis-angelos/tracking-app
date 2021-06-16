@@ -10,7 +10,7 @@ describe('AddCard', () => {
       submitHandler={() => {}}
       changeHandler={() => {}}
     />)
-    .toJSON();
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
