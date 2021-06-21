@@ -1,10 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { store } from './app/store';
 import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import App from './Components/App';
+import rootReducer from './reducers/index';
+import './assets/reset.css';
+import './assets/styles.css';
+
+const state = {
+  units: [],
+  values: {},
+  measurements: {
+    Weight: [{ value: 0 }],
+    Energy: [{ value: 0 }],
+    'Energy burned': [{ value: 0 }],
+    Sugar: [{ value: 0 }],
+    Fats: [{ value: 0 }],
+    Water: [{ value: 0 }],
+    Protein: [{ value: 0 }],
+    Carbonhydrates: [{ value: 0 }],
+    'Saturated fats': [{ value: 0 }],
+  },
+  date: {
+    day: 1,
+    month: 1,
+    year: 2021,
+  },
+  filter: 'Weight',
+};
+
+const store = createStore(rootReducer, state);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,10 +37,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
