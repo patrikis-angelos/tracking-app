@@ -7,6 +7,8 @@ The app is connected to a REST API build in Ruby on Rails. The design of the pro
 
 ![screenshot](./docs/healthify.png)
 
+You can visit the repository for the backend of the project [here](https://github.com/patrick-angelos/tracking-api)
+
 ## Built With
 
 - React.js
