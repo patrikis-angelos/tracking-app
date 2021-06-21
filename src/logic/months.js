@@ -73,13 +73,13 @@ const newDate = (dir, day, month, year) => {
   let newYear = year;
   if (newDay <= 0) {
     newMonth -= 1;
-    if (newMonth <= 0) { newMonth = 12; newYear -= 1; }
+    if (newMonth < 0) { newMonth = 11; newYear -= 1; }
     newDay = months[newMonth].days;
   }
   if (newDay > months[newMonth].days) {
     newDay = 1;
     newMonth += 1;
-    if (newMonth > 12) { newMonth = 1; newYear += 1; }
+    if (newMonth > 11) { newMonth = 1; newYear += 1; }
   }
   return [newDay, newMonth, newYear];
 };
